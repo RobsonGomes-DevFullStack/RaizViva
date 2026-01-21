@@ -30,7 +30,7 @@
 
 /* Cor de fundo mais escura apenas para o card do formulário */
 .card-formulario {
-    background-color: #f8f9fa; /* Cinza muito claro */
+    background-color: var(--pantanal-light); /* Cinza muito claro */
     border: 1.5px solid rgba(0, 0, 0, 0.1);
 }
 

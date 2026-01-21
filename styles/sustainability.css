@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SUSTENTABILIDADE - LAYOUT FLEXBOX
+   SUSTENTABILIDADE - CARDS INDEPENDENTES
    ========================================================================== */
 
 .sustentabilidade {
@@ -11,74 +11,36 @@
     min-height: 100vh;
 }
 
-/* Container Flexbox */
-.bento-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--espaco-lg);
-}
-
-/* Layout para desktop */
-.bento-container.desktop-layout {
-    flex-direction: row;
-}
-
-.bento-container.desktop-layout .card-bento {
-    flex: 1;
-    min-width: 0;
-}
-
-/* Layout para mobile */
-.bento-container.mobile-layout {
-    flex-direction: column;
-}
-
 /* ==========================================================================
-   LAYOUT ESPECÍFICO DESKTOP - ALINHAMENTO INDEPENDENTE
+   LAYOUT DESKTOP - GRID
    ========================================================================== */
 
-/* Linha 1: Terra e Imagem lado a lado */
-.linha-1 {
-    display: flex;
+.bento-grid-desktop {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-rows: auto auto;
     gap: var(--espaco-lg);
-    width: 100%;
-    margin-bottom: var(--espaco-lg);
-    align-items: stretch; /* Permite que cada card tenha altura própria */
+    align-items: start;
 }
 
-/* Linha 2: Energia e Ação lado a lado */
-.linha-2 {
+/* Posicionamento no grid */
+.card-origem { grid-area: 1 / 1 / 2 / 2; }
+.card-imagem { grid-area: 1 / 2 / 2 / 3; }
+.card-energia { grid-area: 2 / 1 / 3 / 2; }
+.card-acao { grid-area: 2 / 2 / 3 / 3; }
+
+/* ==========================================================================
+   LAYOUT MOBILE - COLUNA
+   ========================================================================== */
+
+.bento-grid-mobile {
     display: flex;
+    flex-direction: column;
     gap: var(--espaco-lg);
-    width: 100%;
-    align-items: stretch; /* Permite que cada card tenha altura própria */
-}
-
-/* Larguras específicas para desktop */
-.desktop-layout .card-origem {
-    flex: 1.2;
-    align-self: flex-start; /* Não se alonga com o vizinho */
-}
-
-.desktop-layout .card-imagem {
-    flex: 0.8;
-    min-height: 280px;
-    max-height: 320px;
-    align-self: flex-start; /* Altura fixa, não se alonga */
-}
-
-.desktop-layout .card-energia {
-    flex: 1;
-    align-self: flex-start; /* Não se alonga com o vizinho */
-}
-
-.desktop-layout .card-acao {
-    flex: 1;
-    align-self: flex-start; /* Não se alonga com o vizinho */
 }
 
 /* ==========================================================================
-   CARDS BENTO COM ALTURA INDEPENDENTE
+   ESTILOS DOS CARDS
    ========================================================================== */
 
 .card-bento {
@@ -90,18 +52,9 @@
         0 1px 3px rgba(0, 0, 0, 0.05);
     border: 1.5px solid rgba(118, 119, 69, 0.1);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    align-self: flex-start; /* Card não se alonga com vizinhos */
-    min-height: 320px; /* Altura mínima consistente */
-}
-
-/* Para cards com imagem, altura específica */
-.card-imagem {
-    min-height: 280px !important;
-    max-height: 320px !important;
 }
 
 .card-bento:hover {
@@ -112,28 +65,46 @@
     border-color: rgba(118, 119, 69, 0.2);
 }
 
-.card-bento::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--cipo), var(--barro));
-    opacity: 0;
-    transition: opacity 0.4s ease;
+/* Card de imagem especial */
+.card-imagem {
+    padding: 0;
+    background: linear-gradient(135deg, 
+        rgba(118, 119, 69, 0.05), 
+        rgba(96, 125, 139, 0.05)
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 320px;
 }
 
-.card-bento:hover::before {
-    opacity: 1;
+.imagem-container {
+    width: 100%;
+    height: 100%;
+    padding: var(--espaco-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Cabeçalho dos Cards */
+.imagem-sustentabilidade {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.6s ease;
+}
+
+.card-imagem:hover .imagem-sustentabilidade {
+    transform: scale(1.03);
+}
+
+/* Cabeçalho */
 .card-header {
     margin-bottom: var(--espaco-md);
     padding-bottom: var(--espaco-sm);
     border-bottom: 1.5px solid rgba(118, 119, 69, 0.1);
-    flex-shrink: 0;
 }
 
 .card-header h2 {
@@ -141,32 +112,24 @@
     font-size: 1.5rem;
     font-weight: 700;
     margin: 0;
-    line-height: 1.3;
 }
 
-/* ==========================================================================
-   CONTEÚDO DOS CARDS COM EXPANSÃO INDEPENDENTE
-   ========================================================================== */
-
+/* Conteúdo expansível */
 .card-body,
 .texto {
     flex: 1;
     overflow: hidden;
     position: relative;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: max-height 0.5s ease;
     margin-bottom: var(--espaco-md);
 }
 
-/* Conteúdo padrão (recolhido) com alturas fixas */
-.card-body:not(.expanded) {
-    max-height: 200px;
-}
+.card-body:not(.expanded) { max-height: 200px; }
+.texto:not(.expanded) { max-height: 120px; }
+.card-body.expanded,
+.texto.expanded { max-height: 2000px; }
 
-.texto:not(.expanded) {
-    max-height: 120px;
-}
-
-/* Efeito de fade no conteúdo recolhido */
+/* Efeito de fade */
 .card-body:not(.expanded)::after,
 .texto:not(.expanded)::after {
     content: '';
@@ -176,29 +139,41 @@
     right: 0;
     height: 40px;
     background: linear-gradient(to bottom, transparent, var(--alpendre) 90%);
-    pointer-events: none;
-    opacity: 1;
-    transition: opacity 0.3s ease;
 }
 
-/* Conteúdo expandido - altura automática */
-.card-body.expanded,
-.texto.expanded {
-    max-height: 1000px !important;
+/* Layout com ícone */
+.conteudo-flex {
+    display: flex;
+    gap: var(--espaco-md);
+    align-items: flex-start;
 }
 
-/* Remove fade quando expandido */
-.card-body.expanded::after,
-.texto.expanded::after {
-    opacity: 0;
+.conteudo-flex .texto {
+    flex: 1;
 }
 
-/* ==========================================================================
-   BOTÃO EXPANDIR (AGORA FIXO NO FINAL DO CARD)
-   ========================================================================== */
+.icone-circular {
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--cipo);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cipo);
+    background: rgba(96, 125, 139, 0.08);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
 
+.card-bento:hover .icone-circular {
+    background: rgba(96, 125, 139, 0.15);
+    transform: rotate(15deg);
+}
+
+/* Botões */
 .btn-expandir {
-    background: transparent;
+    background: rgba(118, 119, 69, 0.03);
     border: 1.5px solid rgba(118, 119, 69, 0.15);
     border-radius: 20px;
     color: var(--cipo);
@@ -209,12 +184,9 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    margin-top: auto; /* Empurra para baixo */
+    margin-top: auto;
     padding: 10px 16px;
-    width: 100%;
     transition: all 0.3s ease;
-    background: rgba(118, 119, 69, 0.03);
-    flex-shrink: 0;
 }
 
 .btn-expandir:hover {
@@ -223,12 +195,7 @@
     transform: translateY(-1px);
 }
 
-.btn-expandir:active {
-    transform: translateY(0);
-}
-
 .btn-expandir .expandir-icone {
-    font-size: 1rem;
     transition: transform 0.3s ease;
 }
 
@@ -236,81 +203,53 @@
     transform: rotate(180deg);
 }
 
-/* ==========================================================================
-   CARD ESPECÍFICOS
-   ========================================================================== */
-
-/* Card de Imagem SEM MOLDURA */
-.card-imagem {
-    padding: 0 !important;
-    background: linear-gradient(135deg, rgba(118, 119, 69, 0.05), rgba(96, 125, 139, 0.05));
-    overflow: hidden;
-    position: relative;
-    max-height: 320px;
-}
-
-.imagem-container {
+.btn-bento {
+    display: block;
     width: 100%;
-    height: 280px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: 16px 0;
+    background: linear-gradient(135deg, var(--cipo), var(--barro));
+    color: var(--alpendre);
+    text-align: center;
     padding: var(--espaco-md);
-}
-
-.imagem-sustentabilidade {
-    width: 100%;
-    height: 100%;
-    max-height: 100%;
-    object-fit: cover;
     border-radius: 16px;
-    transition: transform 0.6s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.card-imagem:hover .imagem-sustentabilidade {
-    transform: scale(1.03);
-}
-
-/* Cards com Ícones */
-.conteudo-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: var(--espaco-md);
-    height: 100%;
-    flex: 1;
-}
-
-.conteudo-flex .texto {
-    flex: 1;
-    margin-bottom: 0;
-}
-
-.icone-circular {
-    flex-shrink: 0;
-    width: 60px;
-    height: 60px;
-    border: 2px solid var(--cipo);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--cipo);
-    background: rgba(96, 125, 139, 0.08);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.card-bento:hover .icone-circular {
-    background: rgba(96, 125, 139, 0.15);
-    transform: rotate(15deg);
+.btn-bento:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(118, 119, 69, 0.3);
 }
 
-.icone-circular svg {
-    stroke: currentColor;
+/* Lista */
+.lista-sustentavel {
+    list-style: none;
+    padding: 0;
+    margin: var(--espaco-md) 0 0 0;
 }
 
-/* Texto dos cards menores */
+.lista-sustentavel li {
+    padding: var(--espaco-xs) 0;
+    padding-left: var(--espaco-md);
+    position: relative;
+    color: var(--texto);
+    font-size: 0.95rem;
+}
+
+.lista-sustentavel li::before {
+    color: var(--cipo);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Texto */
 .texto h3 {
     color: var(--texto);
     font-size: 1.25rem;
@@ -330,75 +269,9 @@
 }
 
 .detalhe {
-    font-size: 0.85rem !important;
-    color: rgba(0, 0, 0, 0.6) !important;
-    margin-top: var(--espaco-xs) !important;
+    font-size: 0.85rem;
+    color: rgba(0, 0, 0, 0.6);
     font-style: italic;
-}
-
-/* Lista do Card Origem */
-.lista-sustentavel {
-    list-style: none;
-    padding: 0;
-    margin: var(--espaco-md) 0 0 0;
-}
-
-.lista-sustentavel li {
-    padding: var(--espaco-xs) 0;
-    padding-left: var(--espaco-md);
-    position: relative;
-    color: var(--texto);
-    font-size: 0.95rem;
-}
-
-.lista-sustentavel li::before {
-    content: "✓";
-    color: var(--cipo);
-    position: absolute;
-    left: 0;
-    font-weight: bold;
-    font-size: 1rem;
-}
-
-/* Botão Verde Oliva */
-.btn-bento {
-    display: block;
-    width: 100%;
-    background: linear-gradient(135deg, var(--cipo), var(--barro));
-    color: var(--alpendre);
-    text-align: center;
-    padding: var(--espaco-md);
-    border-radius: 16px;
-    font-weight: 700;
-    font-size: 1rem;
-    
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    flex-shrink: 0;
-}
-
-.btn-bento::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.6s ease;
-}
-
-.btn-bento:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(118, 119, 69, 0.3);
-}
-
-.btn-bento:hover::before {
-    left: 100%;
 }
 
 /* ==========================================================================
@@ -406,34 +279,20 @@
    ========================================================================== */
 
 @media (max-width: 992px) {
-    .bento-container.desktop-layout {
-        display: none;
-    }
-    
-    .bento-container.mobile-layout {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
+    .bento-grid-desktop { display: none; }
+    .bento-grid-mobile { display: flex; }
     
     .card-bento {
         border-radius: 20px;
         padding: var(--espaco-md);
-        min-height: 280px;
     }
     
     .card-imagem {
-        min-height: 200px !important;
-        max-height: 250px !important;
+        min-height: 250px;
     }
     
     .imagem-container {
-        height: 180px;
-        padding: var(--espaco-sm);
-    }
-    
-    .imagem-sustentabilidade {
-        border-radius: 12px;
+        padding: var(--espaco-md);
     }
     
     .card-header h2 {
@@ -449,87 +308,38 @@
         height: 50px;
     }
     
-    .card-body:not(.expanded) {
-        max-height: 180px;
-    }
-    
-    .texto:not(.expanded) {
-        max-height: 100px;
-    }
+    .card-body:not(.expanded) { max-height: 180px; }
+    .texto:not(.expanded) { max-height: 200px; }
 }
 
 @media (min-width: 993px) {
-    .bento-container.desktop-layout {
-        display: flex;
-    }
-    
-    .bento-container.mobile-layout {
-        display: none;
-    }
-}
-
-@media (max-width: 768px) {
-    .linha-1,
-    .linha-2 {
-        flex-direction: column;
-        gap: var(--espaco-md);
-    }
-    
-    .desktop-layout .card-origem,
-    .desktop-layout .card-imagem,
-    .desktop-layout .card-energia,
-    .desktop-layout .card-acao {
-        flex: 1 1 100%;
-    }
-    
-    .card-imagem {
-        min-height: 180px !important;
-        max-height: 220px !important;
-    }
+    .bento-grid-desktop { display: grid; }
+    .bento-grid-mobile { display: none; }
 }
 
 @media (max-width: 480px) {
     .conteudo-flex {
         flex-direction: column;
         gap: var(--espaco-sm);
+        margin-bottom: 10px;
     }
     
     .icone-circular {
         align-self: center;
-        margin-top: var(--espaco-xs);
     }
     
     .btn-bento {
         padding: var(--espaco-sm);
     }
     
-    .card-body:not(.expanded) {
-        max-height: 150px;
-    }
+    .card-body:not(.expanded) { max-height: 150px; }
+    .texto:not(.expanded) { max-height: 150px; }
     
-    .texto:not(.expanded) {
-        max-height: 90px;
-    }
     .card-imagem {
-        min-height: 180px !important;
-        max-height: 220px !important;
+        min-height: 200px;
     }
     
     .imagem-container {
-        height: 160px; /* Ainda menor para celular */
-        padding: var(--espaco-xs);
+        padding: var(--espaco-sm);
     }
-}
-
-/* Classe utilitária para conteúdo escondido visualmente */
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
 }
