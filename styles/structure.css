@@ -1,0 +1,574 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+/* Garante que o conteúdo principal tenha transição suave */
+main, .navbar, .footer-neutro {
+    opacity: 1;
+    transition: opacity 0.8s ease;
+}
+
+/* Quando em loading, mantém conteúdo escondido */
+.body-loading main,
+.body-loading .navbar,
+.body-loading .footer-neutro {
+    opacity: 0;
+}
+/* ==========================================================================
+   NAVBAR
+   ========================================================================== */
+   .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    background: rgba(118, 119, 69, 0.8);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    overflow-x: clip;
+   }
+   
+   .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2rem;
+    max-width: 1600px;
+   }
+   .navbar-logo img {
+    height: 50px;
+    width: auto;
+    max-height: 100%;
+    cursor: pointer;
+   }
+   
+   .navbar-container .navbar-menu{
+    display: flex;
+    text-align: center;
+    gap: var(--espaco-lg);
+    list-style: none;
+   }
+
+   .navbar-container .navbar-menu li a {
+    text-decoration: none;
+    font-size: 1.3em;
+    font-weight: 500;
+    padding: 3px 20px;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    background: rgba(58, 90, 111, 0.7);
+    transition: all 0.7s ease;
+    white-space: nowrap;
+   }
+
+   .navbar-container .navbar-menu li a:hover {
+    color: var(--alpendre);
+    background: var(--barro);
+    border: 2px solid var(--cerrado);
+   }
+   .navbar-toggle {
+    display: none;
+    background: var(--sombra-suave);
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+   }
+   .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background: var(--alpendre);
+    transition: all 0.5s ease-in-out;
+   }
+
+   @media (max-width: 800px) {
+    .navbar {
+        backdrop-filter: none;
+    }
+    .navbar-container .navbar-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.7em !important;
+        position: absolute;
+        height: 100vh;
+        width: 250px;
+        top: 0;
+        right: 0;
+        padding: 5em 1.5em;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+        transform: translateX(100%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 1.5s ease, opacity 0.5s ease;
+    }
+    .navbar-container .navbar-menu.active {
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .navbar-toggle{
+        display: block;
+        z-index: 1000;
+    }
+    .navbar-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .navbar-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .navbar-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+   }
+
+   @media (max-width: 480px) {
+    .navbar-container {
+        padding: 0 1em;
+    }
+    .navbar-container .navbar-menu li a {
+        font-size: var(--espaco-sm);
+        padding: 3px 15px;
+    }
+   }
+
+  /* ==========================================================================
+   Banner
+   ========================================================================== */
+
+.banner {
+    position: relative;
+    min-height: 70vh;
+    background-image: url('/assets/images/background-titulos.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--espaco-xl) var(--espaco-md);
+}
+
+/* Overlay escuro para leitura */
+.banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(43, 67, 84, 0.2), rgba(43, 67, 84, 0.7));
+    z-index: 1;
+}
+
+.banner-conteudo {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--alpendre);
+    max-width: 800px;
+    width: 100%;
+    padding: 0 var(--espaco-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Título do banner - CENTRALIZADO PERFEITAMENTE */
+.banner-conteudo h1 {
+    color: var(--alpendre);
+    margin-bottom: var(--espaco-sm);
+    text-shadow: 2px 2px 15px var(--sombra-suave);
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Tamanho responsivo */
+    line-height: 1.2;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+    display: block;
+}
+
+/* Parágrafo do banner - ALINHADO COM O TÍTULO */
+.banner-conteudo p {
+    color: var(--alpendre);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    line-height: 1.5;
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+    opacity: 0.95;
+}
+
+/* Garantir que ambos estejam no mesmo centro */
+.banner-conteudo h1,
+.banner-conteudo p {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    .banner {
+        min-height: 60vh;
+        padding: var(--espaco-lg) var(--espaco-sm);
+    }
+    
+    .banner-conteudo {
+        padding: 0 var(--espaco-sm);
+    }
+    
+    .banner-conteudo h1 {
+        margin-bottom: var(--espaco-xs);
+        line-height: 1.1;
+    }
+    
+    .banner-conteudo p {
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner {
+        min-height: 50vh;
+    }
+    
+    .banner-conteudo h1 {
+        font-size: 2rem;
+    }
+    
+    .banner-conteudo p {
+        font-size: 1rem;
+    }
+}
+
+   /* ==========================================================================
+   footer
+   ========================================================================== */
+   .footer-neutro {
+    background-color: var(--sombra-suave);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding: var(--espaco-lg) 0 var(--espaco-md);
+    color: var(--texto);
+    width: 100%;
+    display: block;
+    opacity: 1 !important;
+}
+
+.footer-conteudo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--espaco-lg);
+    width: 100%;
+}
+.footer-neutro p {
+    max-width: none !important;
+    margin-bottom: 0;
+    text-align: inherit;
+}
+
+.footer-nav, .footer-social {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: var(--espaco-md);
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-info .brand {
+    font-family: var(--fonte-titulos);
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--pantanal);
+    display: block;
+    margin-bottom: var(--espaco-xs);
+}
+
+.footer-info p {
+    font-size: 0.85rem;
+    margin: 0;
+    opacity: 1 !important;
+    color: var(--texto) !important;
+    visibility: visible !important;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.footer-nav {
+    display: flex;
+    gap: var(--espaco-md);
+}
+
+.footer-nav a {
+    font-size: 0.85rem;
+    color: var(--texto);
+    font-weight: 500;
+}
+
+.footer-nav a:hover {
+    color: var(--barro);
+    text-decoration: none;
+}
+
+.footer-social {
+    display: flex;
+    gap: var(--espaco-sm);
+}
+
+.footer-social a {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--pantanal);
+    padding: 5px 10px;
+    border: 1px solid rgba(43, 67, 84, 0.1);
+    border-radius: 4px;
+}
+
+.footer-copyright {
+    width: 100%;
+    text-align: center;
+    font-size: 0.75rem;
+    opacity: 0.6;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: var(--espaco-md);
+    margin-top: var(--espaco-md);
+}
+
+.footer-copyright p {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block; /* Ou mantenha block, mas com text-align center no pai resolve */
+    color: var(--pantanal);
+}
+
+/* Ajuste Mobile */
+@media (max-width: 768px) {
+    .footer-conteudo {
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .footer-nav, .footer-social {
+        width: 100% !important;
+        justify-content: center !important;
+        margin: var(--espaco-xs) 0;
+    }
+
+    .footer-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+/* ============================================
+   LOADING SCREEN - VERSÃO OTIMIZADA
+   ============================================ */
+
+/* Container principal do loading - SEMPRE VISÍVEL INICIALMENTE */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--alpendre);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                visibility 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    /* VISÍVEL POR PADRÃO - O JavaScript controla o fade-out */
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Estado de fade-out (controlado pelo JavaScript) */
+.loading-screen.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Conteúdo central do loading */
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+/* Logo no loading - COM ANIMAÇÃO DE FLUTUAÇÃO */
+.loading-logo {
+    margin-bottom: 3rem;
+    animation: floatLogo 3s ease-in-out infinite;
+}
+
+.loading-logo img {
+    max-width: 180px;
+    height: auto;
+    filter: drop-shadow(0 5px 15px rgba(59, 55, 53, 0.1));
+}
+
+/* Container da animação */
+.loading-animation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Spinner personalizado */
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    position: relative;
+}
+
+.loading-spinner::before,
+.loading-spinner::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.loading-spinner::before {
+    border: 3px solid rgba(118, 119, 69, 0.1);
+}
+
+.loading-spinner::after {
+    border: 3px solid transparent;
+    border-top-color: var(--pantanal);
+    border-right-color: var(--pantanal);
+    animation: spin 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+}
+
+/* Texto do loading */
+.loading-text {
+    color: var(--pantanal);
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    animation: pulseText 2s ease-in-out infinite;
+    margin-top: 0.5rem;
+}
+
+/* ============================================
+   ANIMAÇÕES DO LOADING
+   ============================================ */
+
+/* Flutuação suave do logo */
+@keyframes floatLogo {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Rotação do spinner */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Pulsação do texto */
+@keyframes pulseText {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* ============================================
+   ANIMAÇÃO DE ENTRADA DO CONTEÚDO PRINCIPAL
+   (controlada pelo JavaScript)
+   ============================================ */
+.body-content-loading {
+    opacity: 0;
+    animation: bodyContentAppear 1s ease-out 0.3s forwards;
+}
+
+@keyframes bodyContentAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   RESPONSIVIDADE DO LOADING
+   ============================================ */
+@media (max-width: 768px) {
+    .loading-logo {
+        margin-bottom: 2rem;
+    }
+    
+    .loading-logo img {
+        max-width: 140px;
+    }
+    
+    .loading-spinner {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .loading-text {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .loading-logo {
+        margin-bottom: 1.5rem;
+    }
+    
+    .loading-logo img {
+        max-width: 120px;
+    }
+    
+    .loading-spinner {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .loading-text {
+        font-size: 0.8rem;
+    }
+}

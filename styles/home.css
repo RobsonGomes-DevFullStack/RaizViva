@@ -1,0 +1,303 @@
+/* --- HERO HOME --- */
+.hero-home {
+    padding: var(--espaco-xl) 0;
+    background-color: var(--alpendre);
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--espaco-xl);
+}
+
+.hero-texto { 
+    flex: 1; 
+    max-width: 600px;
+}
+
+.hero-imagem { 
+    flex: 1; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+/* FORMA ELEGANTE PARA A IMAGEM - SEM BORDER-RADIUS */
+.imagem-elegante {
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    max-height: 350px;
+    aspect-ratio: 4 / 5; /* Formato vertical elegante */
+    overflow: hidden;
+    position: relative;
+    
+    /* Forma elegante com clip-path */
+    clip-path: polygon(
+        0% 15%,      /* Topo esquerdo - começa baixo */
+        15% 0%,      /* Canto superior esquerdo inclinado */
+        85% 0%,      /* Canto superior direito inclinado */
+        100% 15%,    /* Topo direito */
+        100% 85%,    /* Base direita */
+        85% 100%,    /* Canto inferior direito inclinado */
+        15% 100%,    /* Canto inferior esquerdo inclinado */
+        0% 85%       /* Base esquerda */
+    );
+    
+    /* Sombra elegante */
+    box-shadow: 
+        0 20px 40px rgba(59, 55, 53, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* IMAGEM DENTRO DO CONTÊINER */
+.imagem-elegante img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.8s ease;
+}
+
+/* Efeito hover sutil */
+.imagem-elegante:hover img {
+    transform: scale(1.03);
+}
+
+/* BORDA DECORATIVA */
+.imagem-elegante::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid rgba(118, 119, 69, 0.1);
+    pointer-events: none;
+    clip-path: inherit;
+}
+
+/* ========== BOTÕES DO INDEX.HTML ========== */
+
+/* 1. BOTÃO PRIMÁRIO (Ver Cardápio) */
+.btn-primario {
+    display: inline-block;
+    background-color: var(--pantanal);
+    color: var(--alpendre);
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid var(--pantanal);
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    margin-top: var(--espaco-md);
+    text-align: center;
+}
+
+.btn-primario:hover {
+    background-color: transparent;
+    color: var(--pantanal);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(59, 83, 61, 0.2);
+}
+
+/* 2. BOTÕES DE LINK NOS CARDS */
+.btn-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--barro);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid var(--barro);
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    margin-top: var(--espaco-sm);
+}
+
+.btn-link:hover {
+    background-color: var(--barro);
+    color: var(--alpendre);
+    transform: translateX(5px);
+    padding-right: 24px;
+}
+
+.btn-link::after {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-link:hover::after {
+    transform: translateX(3px);
+}
+
+/* --- GRID DE NAVEGAÇÃO --- */
+.grid-home {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--espaco-lg);
+    padding: var(--espaco-xl) 0;
+}
+
+.card-home {
+    background: var(--alpendre);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px var(--sombra-suave);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(118, 119, 69, 0.05);
+}
+
+.card-home:hover { 
+    transform: translateY(-8px); 
+    box-shadow: 0 15px 40px rgba(59, 55, 53, 0.15);
+    border-color: rgba(118, 119, 69, 0.1);
+}
+
+.card-home img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card-home:hover img {
+    transform: scale(1.05);
+}
+
+.card-home-content {
+    padding: var(--espaco-lg);
+}
+
+.card-home-content h3 {
+    color: var(--pantanal);
+    margin-bottom: var(--espaco-xs);
+    font-size: 1.25rem;
+}
+
+.card-home-content p {
+    color: var(--texto);
+    margin-bottom: var(--espaco-md);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* ANIMAÇÃO SUTIL PARA A IMAGEM ELEGANTE */
+@keyframes aparecer-suave {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.imagem-elegante {
+    animation: aparecer-suave 1s ease-out;
+}
+
+/* Responsividade */
+/* ========== RESPONSIVIDADE - ORDEM DA IMAGEM ========== */
+
+@media (max-width: 992px) {
+    .hero-container { 
+        flex-direction: column; /* Mantém direção normal */
+        text-align: center; 
+        gap: var(--espaco-lg);
+    }
+
+    /* IMAGEM SEMPRE EM CIMA no mobile */
+    .hero-imagem { 
+        order: -1; /* Coloca a imagem PRIMEIRO (valor mais baixo) */
+        width: 100%;
+        margin-bottom: var(--espaco-lg); /* Espaço entre imagem e texto */
+    }
+
+    .hero-texto { 
+        order: 1; /* Texto vem DEPOIS da imagem */
+        max-width: 100%;
+    }
+    
+    .imagem-elegante {
+        max-width: 400px;
+        aspect-ratio: 3 / 4;
+    }
+    
+    .btn-primario {
+        padding: 0.875rem 1.75rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-imagem {
+        margin-bottom: var(--espaco-md); /* Menos espaço em telas muito pequenas */
+    }
+    
+    .imagem-elegante {
+        max-width: 300px;
+        aspect-ratio: 2 / 3;
+        clip-path: polygon(
+            0% 10%,
+            10% 0%,
+            90% 0%,
+            100% 10%,
+            100% 90%,
+            90% 100%,
+            10% 100%,
+            0% 90%
+        );
+    }
+    
+}
+
+@media (max-width: 480px) {
+    .imagem-elegante {
+        max-width: 300px;
+        aspect-ratio: 2 / 3;
+        clip-path: polygon(
+            0% 10%,
+            10% 0%,
+            90% 0%,
+            100% 10%,
+            100% 90%,
+            90% 100%,
+            10% 100%,
+            0% 90%
+        );
+    }
+    
+    .hero-home {
+        min-height: 70vh;
+        padding: var(--espaco-lg) 0;
+    }
+    
+    .grid-home {
+        grid-template-columns: 1fr;
+        gap: var(--espaco-md);
+        padding: var(--espaco-lg) 0;
+    }
+    
+    .btn-primario {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .btn-link {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}

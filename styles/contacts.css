@@ -1,0 +1,234 @@
+/* --- Grid de Contato --- */
+.bento-grid-contato {
+    display: grid;
+    gap: var(--espaco-md);
+    grid-template-areas: 
+        "form info"
+        "form mapa";
+    grid-template-columns: 1fr 1.5fr;
+    padding: var(--espaco-xl) 0;
+}
+
+.card-formulario { 
+    grid-area: form; 
+    background-color: rgba(0, 0, 0, 0.02); /* Cor de fundo mais escura sutil */
+    border: 1.5px solid rgba(0, 0, 0, 0.08);
+}
+
+.card-info-contato { grid-area: info; }
+.card-mapa { grid-area: mapa; }
+
+/* Estilo dos Cards */
+.card-bento {
+    background-color: white;
+    border-radius: 20px;
+    padding: var(--espaco-lg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1.5px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Cor de fundo mais escura apenas para o card do formulário */
+.card-formulario {
+    background-color: #f8f9fa; /* Cinza muito claro */
+    border: 1.5px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do Card de Formulário */
+.card-formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-sm);
+    align-items: center; /* Centraliza todos os elementos do formulário */
+    max-width: 400px; /* Limita a largura máxima */
+    margin: 0 auto; /* Centraliza o formulário no card */
+}
+
+.campo-grupo {
+    margin-bottom: var(--espaco-sm);
+    width: 100%; /* Garante que os campos ocupem toda a largura disponível */
+    display: flex;
+    justify-content: center;
+}
+
+.card-formulario input, 
+.card-formulario textarea {
+    width: 100%;
+    max-width: 350px; /* Limita a largura máxima dos campos */
+    background-color: white;
+    border: 1.5px solid rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    padding: 1rem;
+    color: var(--texto);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 0 auto; /* Centraliza cada campo individualmente */
+}
+
+/* Estilização específica para o textarea */
+.card-formulario textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.card-formulario input:focus, 
+.card-formulario textarea:focus {
+    outline: none;
+    border-color: var(--cipo);
+    box-shadow: 0 0 0 3px rgba(96, 125, 139, 0.15);
+    transform: translateY(-1px);
+}
+
+.card-formulario input::placeholder,
+.card-formulario textarea::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+/* Container para centralizar o botão */
+.campo-grupo:last-of-type {
+    margin-top: var(--espaco-sm);
+}
+
+.btn-enviar {
+    background-color: var(--cipo);
+    color: var(--alpendre);
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: var(--espaco-sm);
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    width: auto; /* Não ocupa 100% da largura */
+    min-width: 200px; /* Largura mínima para o botão */
+}
+
+.btn-enviar:hover {
+    background-color: var(--barro);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajustes para telas maiores */
+@media (min-width: 851px) {
+    .card-formulario {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .card-formulario form {
+        width: 100%;
+    }
+}
+
+/* Estilo das Informações */
+.info-header h2 {
+    color: var(--texto);
+    font-size: 1.25rem;
+    margin-bottom: var(--espaco-md);
+    font-weight: 700;
+}
+
+.info-corpo {
+    margin-bottom: var(--espaco-md);
+}
+
+.info-linha {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--espaco-sm);
+    margin-bottom: var(--espaco-sm);
+    padding-bottom: var(--espaco-sm);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.info-linha:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.info-linha .icone {
+    font-size: 1.2rem;
+    width: 24px;
+    text-align: center;
+}
+
+.info-linha p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--texto);
+}
+
+.redes-sociais-contato {
+    display: flex;
+    justify-content: flex-start;
+    gap: var(--espaco-sm);
+    margin-top: var(--espaco-lg);
+    padding-top: var(--espaco-md);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--barro);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--cipo);
+    transform: scale(1.1);
+}
+
+/* Mapa */
+.mapa-container {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1.5px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade */
+@media (max-width: 850px) {
+    .bento-grid-contato {
+        grid-template-areas: 
+            "info"
+            "form"
+            "mapa";
+        grid-template-columns: 1fr;
+    }
+    
+    .card-bento {
+        padding: var(--espaco-md);
+    }
+    
+    .info-linha {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .card-formulario form {
+        max-width: 100%;
+    }
+    
+    .card-formulario input,
+    .card-formulario textarea {
+        max-width: 100%;
+    }
+}

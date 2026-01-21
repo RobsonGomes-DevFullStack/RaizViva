@@ -1,0 +1,270 @@
+/* ==========================================================================
+   BENTO GRID - LAYOUT SOBRE
+   ========================================================================== */
+
+/* VARIÁVEIS ESPECÍFICAS DA PÁGINA SOBRE */
+:root {
+  --bento-radius: 20px;
+  --bento-shadow: 0 10px 30px var(--sombra-suave);
+  --bento-shadow-hover: 0 15px 40px rgba(59, 55, 53, 0.15);
+  --bento-transition: all 0.3s ease;
+}
+
+/* SEÇÃO PRINCIPAL */
+.nossa-essencia {
+  padding: var(--espaco-xl) 0;
+}
+
+/* CONTAINER DO GRID BENTO */
+.bento-grid-essencia {
+  display: grid;
+  gap: var(--espaco-md);
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 280px;
+  grid-template-areas: 
+    "filosofia destaque"
+    "historia historia-img";
+}
+
+/* ESTILOS BASE PARA TODOS OS CARDS */
+.card-bento {
+  background: var(--alpendre);
+  border-radius: var(--bento-radius);
+  padding: var(--espaco-lg);
+  box-shadow: var(--bento-shadow);
+  border: 1px solid rgba(118, 119, 69, 0.05);
+  overflow: hidden;
+  transition: var(--bento-transition);
+}
+
+.card-bento:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--bento-shadow-hover);
+}
+
+/* CARDS DE TEXTO - CORREÇÃO DO SCROLL */
+.card-texto {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Garante altura completa */
+}
+
+/* CONTEÚDO SCROLLÁVEL - CORRIGIDO */
+.conteudo-scrollavel {
+  flex: 1; /* Ocupa espaço disponível */
+  overflow-y: auto; /* Scroll vertical */
+  padding-right: var(--espaco-sm);
+  scrollbar-width: thin;
+  scrollbar-color: var(--cipo-light) transparent;
+  min-height: 0; /* Importante para flex container */
+}
+
+/* ESTILIZAÇÃO DA SCROLLBAR */
+.conteudo-scrollavel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.conteudo-scrollavel::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+
+.conteudo-scrollavel::-webkit-scrollbar-thumb {
+  background: var(--cipo-light);
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+.conteudo-scrollavel::-webkit-scrollbar-thumb:hover {
+  background: var(--cipo);
+}
+
+/* CARDS DE IMAGEM - CORRIGIDO (mantém bordas) */
+.card-imagem {
+  padding: 0;
+  /* REMOVI background: transparent e border: none */
+  /* O card-imagem herda os estilos básicos do .card-bento */
+}
+
+.card-imagem:hover {
+  /* Mantém o hover dos cards regulares */
+  transform: translateY(-5px);
+  box-shadow: var(--bento-shadow-hover);
+}
+
+/* POSICIONAMENTO DOS CARDS */
+.card-filosofia { 
+  grid-area: filosofia; 
+  background: linear-gradient(135deg, var(--alpendre) 0%, rgba(249, 247, 242, 0.9) 100%);
+}
+
+.card-destaque-img { 
+  grid-area: destaque; 
+}
+
+.card-historia-txt { 
+  grid-area: historia; 
+  background: linear-gradient(135deg, rgba(184, 107, 77, 0.05) 0%, rgba(249, 247, 242, 0.9) 100%);
+}
+
+.card-historia-img { 
+  grid-area: historia-img; 
+}
+
+/* IMAGENS OVAIS */
+.recorte-oval {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: var(--bento-radius);
+}
+
+.recorte-oval img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.card-imagem:hover .recorte-oval img {
+  transform: scale(1.05);
+}
+
+/* TIPOGRAFIA */
+.card-bento h2 {
+  color: var(--pantanal);
+  font-size: 1.5rem;
+  margin-bottom: var(--espaco-sm);
+  font-family: 'Playfair Display', serif;
+  line-height: 1.3;
+}
+
+.card-bento p {
+  color: var(--texto);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin-bottom: var(--espaco-sm);
+}
+
+.card-bento p:last-child {
+  margin-bottom: 0;
+}
+
+/* GRADIENTE INDICADOR DE SCROLL */
+.conteudo-scrollavel::after {
+  content: '';
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: linear-gradient(to bottom, transparent, var(--alpendre) 80%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.conteudo-scrollavel.scroll-ativo::after {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE
+   ========================================================================== */
+
+/* TABLET (até 850px) */
+@media (max-width: 850px) {
+  .bento-grid-essencia {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    grid-template-areas: 
+      "filosofia"
+      "destaque"
+      "historia"
+      "historia-img";
+    gap: var(--espaco-sm);
+  }
+
+  .card-bento {
+    padding: var(--espaco-md);
+  }
+
+  .conteudo-scrollavel {
+    max-height: 200px;
+    padding-right: var(--espaco-xs);
+  }
+
+  .card-bento h2 {
+    font-size: 1.35rem;
+  }
+  
+  /* Garante altura mínima para cards de texto em tablet */
+  .card-texto {
+    min-height: 250px;
+  }
+}
+
+/* MOBILE (até 480px) */
+@media (max-width: 480px) {
+  .bento-grid-essencia {
+    gap: var(--espaco-sm);
+  }
+
+  .card-bento {
+    padding: var(--espaco-sm);
+  }
+
+  .card-bento h2 {
+    font-size: 1.25rem;
+    margin-bottom: var(--espaco-xs);
+  }
+
+  .card-bento p {
+    font-size: 0.9rem;
+  }
+
+  .conteudo-scrollavel {
+    max-height: 150px;
+  }
+  
+  .card-texto {
+    min-height: 200px;
+  }
+}
+
+/* DESKTOP GRANDE (1200px+) */
+@media (min-width: 1200px) {
+  .bento-grid-essencia {
+    grid-auto-rows: 320px;
+    gap: var(--espaco-lg);
+  }
+
+  .card-bento {
+    padding: var(--espaco-xl);
+  }
+
+  .card-bento h2 {
+    font-size: 1.75rem;
+  }
+
+  .card-bento p {
+    font-size: 1rem;
+  }
+}
+
+/* ALTURAS FIXAS PARA DESKTOP */
+@media (min-width: 851px) {
+  .card-filosofia,
+  .card-historia-txt {
+    min-height: 280px;
+  }
+  
+  .card-destaque-img,
+  .card-historia-img {
+    min-height: 280px;
+  }
+}

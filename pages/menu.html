@@ -1,0 +1,1670 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Cardápio | Raíz Viva | Restaurante Saudável e Afetivo
+    </title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta
+      name="description"
+      content="Cardápio digital interativo do nosso restaurante."
+    />
+    <link rel="stylesheet" href="/styles/estilo-integrado.css" />
+    <link rel="stylesheet" href="/styles/structure.css" />
+    <link rel="stylesheet" href="/styles/menu.css" />
+  </head>
+  <body>
+     <!-- Loading Screen -->
+<div id="loading-screen" class="loading-screen">
+    <div class="loading-content">
+        <!-- Logo acima da animação -->
+        <div class="loading-logo">
+            <img src="/assets/images/logo/android-chrome-512x512.png" alt="Raíz Viva">
+        </div>
+        
+        <!-- Animação de loading -->
+        <div class="loading-animation">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Carregando sabores...</p>
+        </div>
+    </div>
+</div>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="/index.html" class="navbar-logo">
+          <img src="/assets/images/raiz-viva-logo.png" alt="Raíz Viva logo" />
+        </a>
+        <button class="navbar-toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <ul class="navbar-menu">
+          <li><a href="about.html">Sobre</a></li>
+          <li><a href="sustainability.html">Sustentabilidade</a></li>
+          <li><a href="partners.html">Parceiros</a></li>
+          <li><a href="contacts.html">Contatos</a></li>
+        </ul>
+      </div>
+    </nav>
+    <header>
+      <!-- Seção do Banner Principal -->
+      <section class="banner">
+        <div class="banner-conteudo">
+          <h1>Nosso Cardápio</h1>
+          <p>Sabores inesquecíveis, da entrada à sobremesa.</p>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <!-- Filtros de Restrição Alimentar (Versão Botões de Seleção) -->
+      <section id="filtros">
+        <div class="container">
+          <div class="filtro-controles">
+            <button type="button" class="btn-filtro" data-filter="todos">
+              Todos
+            </button>
+            <button type="button" class="btn-filtro" data-filter="vegetariano">
+              Vegetariano
+            </button>
+            <button type="button" class="btn-filtro" data-filter="vegano">
+              Vegano
+            </button>
+            <button type="button" class="btn-filtro" data-filter="sem-gluten">
+              Sem Glúten
+            </button>
+            <button type="button" class="btn-filtro" data-filter="sem-lactose">
+              Sem Lactose
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção de Entradas -->
+      <section class="cardapio">
+        <div class="lista-cards">
+          <section id="entradas">
+            <h2>Entradas</h2>
+            <div class="cardapio-grid">
+              <!-- Card de Prato 1 -->
+              <article class="card-prato" data-categoria="todos">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img
+                        src="/assets/images/cardapio/entradas/caponataDeBerinjela_small.webp"
+                        alt="Caponata de Berinjela"
+                      />
+                    </figure>
+                    <div class="card-info">
+                      <h3>Caponata de Berinjela</h3>
+                      <p class="preco">R$ 15</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Berinjela delicadamente refogada com tomate, cebola e
+                        alho, realçada por um toque agridoce que acaricia o
+                        paladar. Acompanha torradas crocantes para começar a
+                        refeição com aconchego e sabor.
+                      </p>
+                      <p><strong>Porção:</strong> 100g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 2 -->
+              <article class="card-prato" data-categoria="todos">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img
+                        src="/assets/images/cardapio/entradas/cremeSalgadoDeAbacate_small.webp"
+                        alt="Creme Salgado de Abacate"
+                      />
+                    </figure>
+                    <div class="card-info">
+                      <h3>Creme de Abacate</h3>
+                      <p class="preco">R$ 17</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Abacate batido com limão e azeite, resultando em uma
+                        textura cremosa e sabor suave e envolvente. Perfeito
+                        para espalhar e compartilhar.
+                      </p>
+                      <p><strong>Porção:</strong> 100g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 3 -->
+              <article class="card-prato" data-categoria="todos">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img
+                        src="/assets/images/cardapio/entradas/saladaFolhasVerdesSementesDeAbobora_small.webp"
+                        alt="Salada de Folhas Verdes com Sementes de Abóbora"
+                      />
+                    </figure>
+                    <div class="card-info">
+                      <h3>Salada com Sementes</h3>
+                      <p class="preco">R$ 15</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Alface, rúcula e agrião acompanhados de tomate-cereja,
+                        cenoura ralada e sementes de abóbora, regados com azeite
+                        e limão. Simples, fresco e cheio de vida.
+                      </p>
+                      <p><strong>Porção:</strong> 100g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 4 -->
+              <article class="card-prato" data-categoria="todos">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img
+                        src="/assets/images/cardapio/entradas/caldoDeLegumes_small.webp"
+                        alt="Caldo de Legumes"
+                      />
+                    </figure>
+                    <div class="card-info">
+                      <h3>Caldo de Legumes</h3>
+                      <p class="preco">R$ 14</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Um caldo reconfortante, cozido lentamente com cenoura,
+                        tomate, abobrinha, batata e temperos frescos. Cada
+                        colher é um abraço quente para o seu dia.
+                      </p>
+                      <p><strong>Porção:</strong> 100g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 5 -->
+              <article class="card-prato" data-categoria="todos">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img
+                        src="/assets/images/cardapio/entradas/saladaFresca_small.webp"
+                        alt="Salada Refrescante"
+                      />
+                    </figure>
+                    <div class="card-info">
+                      <h3>Salada Refrescante</h3>
+                      <p class="preco">R$ 9</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Rúcula fresca, manga doce, tomates-cereja e castanhas
+                        crocantes, temperados com limão, azeite e especiarias.
+                        Uma explosão de frescor e texturas que desperta os
+                        sentidos
+                      </p>
+                      <p><strong>Porção:</strong> 100g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 6 -->
+              <article class="card-prato" data-categoria="sem-gluten">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img
+                        src="/assets/images/cardapio/entradas/pateDeFrango_small.webp"
+                        alt="Patê de Frango com Cenoura"
+                      />
+                    </figure>
+                    <div class="card-info">
+                      <h3>Patê de Frango</h3>
+                      <p class="preco">R$ 17</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Frango desfiado, cenoura ralada, tomate e azeitonas,
+                        unidos pelo requeijão e temperos. Um patê caseiro, cheio
+                        de personalidade e sabor.
+                      </p>
+                      <p><strong>Porção:</strong> 100g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 7 -->
+              <article class="card-prato" data-categoria="todos">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img src="/assets/images/cardapio/entradas/guacamoleSimples_small.webp" alt="Guacamole Simples" />
+                    </figure>
+                    <div class="card-info">
+                      <h3>Guacamole Simples</h3>
+                      <p class="preco">R$ 17</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Abacate amassado com limão, cebola roxa e coentro,
+                        servido com torradas integrais. Um clássico mexicano
+                        fresco e cremoso, perfeito para começar a refeição com
+                        leveza e sabor.Carpaccio de Abobrinha
+                      </p>
+                      <p><strong>Porção:</strong> 100g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 8 -->
+              <article class="card-prato" data-categoria="vegetariano sem-gluten">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img src="/assets/images/cardapio/entradas/carpaccioDeAbobrinha_small.webp" alt="Carpaccio de Abobrinha" />
+                    </figure>
+                    <div class="card-info">
+                      <h3>Carpaccio de Abobrinha</h3>
+                      <p class="preco">R$ 10</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Lâminas finas de abobrinha marinadas em limão e azeite,
+                        finalizadas com parmesão. Uma entrada leve, fresca e
+                        delicada, que valoriza o sabor natural dos ingredientes.
+                      </p>
+                      <p><strong>Porção:</strong> 100g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 9 -->
+              <article class="card-prato" data-categoria="todos">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img src="/assets/images/cardapio/entradas/saladaMexicanaLeve_small.webp" alt="Salada Mexicana Leve" />
+                    </figure>
+                    <div class="card-info">
+                      <h3>Salada Mexicana Leve</h3>
+                      <p class="preco">R$ 10</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Mix de folhas com milho, tomate, cebola roxa e vinagrete
+                        de limão. Colorida, refrescante e cheia de texturas,
+                        ideal para quem busca uma opção leve e saborosa.
+                      </p>
+                      <p><strong>Porção:</strong> 100g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+          <!-- Seção de Pratos Principais -->
+          <section id="pratos-principais">
+            <h2>Pratos Principais</h2>
+            <div class="cardapio-grid">
+              <!-- Card de Prato 1 -->
+              <article class="card-prato" data-categoria="sem-lactose">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img
+                        src="/assets/images/cardapio/pratosPrincipais/almondegasDeFrango_small.webp"
+                        alt="Almôndega de Frango com Arroz 7 Grãos e Legumes."
+                      />
+                    </figure>
+                    <div class="card-info">
+                      <h3>Almôndegas de Frango</h3>
+                      <p class="preco">R$ 22</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Suaves almôndegas de frango, preparadas com carinho,
+                        servidas sobre um arroz de grãos variados e um colorido
+                        mix de legumes. Uma combinação que nutre o corpo e
+                        aquece o coração.
+                      </p>
+                      <p><strong>Porção:</strong> 350g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 2 -->
+              <article class="card-prato" data-categoria="sem-lactose sem-gluten">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img
+                        src="/assets/images/cardapio/pratosPrincipais/picadinhoDeCarne_small.webp"
+                        alt="Picadinho de Carne"
+                      />
+                    </figure>
+                    <div class="card-info">
+                      <h3>Picadinho de Carne</h3>
+                      <p class="preco">R$ 24</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Carne suculenta em pedaços, acompanhada de arroz branco
+                        soltinho, aipim macio e pimentão colorido. Um prato
+                        tradicional que traz sabor e nutrição em cada garfada.
+                      </p>
+                      <p><strong>Porção:</strong> 350g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 3 -->
+              <article class="card-prato" data-categoria="sem-lactose sem-gluten">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img
+                        src="/assets/images/cardapio/pratosPrincipais/fileDePeixe_small.webp"
+                        alt="Filé de peixe grelhado"
+                      />
+                    </figure>
+                    <div class="card-info">
+                      <h3>Filé de peixe grelhado</h3>
+                      <p class="preco">R$ 20</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Peixe grelhado no ponto perfeito, servido com brócolis,
+                        cenoura, abobrinha e vagem cozidos no vapor. Uma opção
+                        leve, saborosa e cheia de cuidado.
+                      </p>
+                      <p><strong>Porção:</strong> 350g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 4 -->
+              <article class="card-prato" data-categoria="todos">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img src="/assets/images/cardapio/pratosPrincipais/escondidinhoDeMandinhoquinha_small.webp" alt="Escondidinho Vegano de Mandioquinha" />
+                    </figure>
+                    <div class="card-info">
+                      <h3>Escondidinho Vegano de Mandioquinha</h3>
+                      <p class="preco">R$ 24</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Purê cremoso de mandioquinha com azeite e alho, recheado
+                        com lentilha refogada com cebola, tomate, cenoura e
+                        ervas naturais, finalizado com crosta dourada de farinha
+                        de rosca vegana. Um prato reconfortante, nutritivo e
+                        cheio de sabor.
+                      </p>
+                      <p><strong>Porção:</strong> 350g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 5 -->
+              <article class="card-prato" data-categoria="vegetariano">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img src="/assets/images/cardapio/pratosPrincipais/parmegianaDeBeringela_small.webp" alt="Parmegiana de Berinjela" />
+                    </figure>
+                    <div class="card-info">
+                      <h3>Parmegiana de Berinjela</h3>
+                      <p class="preco">R$ 25</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Berinjela empanada e assada com molho de tomate e queijo
+                        gratinado, acompanhada de arroz integral e salada
+                        fresca. Uma versão vegetariana do clássico, que une
+                        cremosidade, crocância e equilíbrio.
+                      </p>
+                      <p><strong>Porção:</strong> 350g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 6 -->
+              <article class="card-prato" data-categoria="todos">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img src="/assets/images/cardapio/pratosPrincipais/tacoVegetariano_small.webp" alt="Tacos Vegetarianos" />
+                    </figure>
+                    <div class="card-info">
+                      <h3>Tacos Vegetarianos</h3>
+                      <p class="preco">R$ 26</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Tortilhas macias recheadas com legumes grelhados, feijão
+                        temperado e guacamole fresco. Uma explosão de sabores e
+                        cores, leve, nutritiva e cheia de personalidade.
+                      </p>
+                      <p><strong>Porção:</strong> 350g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+          <!-- Seção de Sobremesas -->
+          <section id="sobremesas">
+            <h2>Sobremesas</h2>
+            <div class="cardapio-grid">
+              <!-- Card de Prato 1 -->
+              <article class="card-prato" data-categoria="todos">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img
+                        src="/assets/images/cardapio/sobremesas/gelatinaNaturalDeFrutas_small.webp"
+                        alt="Gelatina Natural de Frutas."
+                      />
+                    </figure>
+                    <div class="card-info">
+                      <h3>Gelatina Natural de Frutas</h3>
+                      <p class="preco">R$ 7</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Uma gelatina leve e vibrante, feita com frutas naturais,
+                        ideal para finalizar a refeição com doçura suave e
+                        frescor que revigora.
+                      </p>
+                      <p><strong>Porção:</strong> 150g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 2 -->
+              <article class="card-prato" data-categoria="vegetariano sem-gluten">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img src="/assets/images/cardapio/sobremesas/mousseDeMangaLight_small.webp" alt="Mousse de Manga Light">
+                    </figure>
+                    <div class="card-info">
+                      <h3>Mousse de Manga Light</h3>
+                      <p class="preco">R$ 7</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Cremoso e delicado, este mousse une a doçura da manga fresca ao toque suave do iogurte natural e do mel. Uma sobremesa leve que encanta sem pesar.
+                      </p>
+                      <p><strong>Porção:</strong> 150g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 3 -->
+              <article class="card-prato" data-categoria="todos">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img src="/assets/images/cardapio/sobremesas/soverteMorangoNatural_small.webp" alt="Sorvete de Morango Natural">
+                    </figure>
+                    <div class="card-info">
+                      <h3>Sorvete de Morango Natural</h3>
+                      <p class="preco">R$ 9</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Feito com morangos, framboesas, mirtilos e iogurte natural, adoçado suavemente. Um sorvete que refresca e nutre, como um carinho doce para o final da refeição.
+                      </p>
+                      <p><strong>Porção:</strong> 150g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 4 -->
+              <article class="card-prato" data-categoria="vegetariano sem-gluten">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img src="/assets/images/cardapio/sobremesas/pudimDeLeiteCondensado_small.webp" alt="Pudim de Leite Condensado Saudável">
+                    </figure>
+                    <div class="card-info">
+                      <h3>Pudim de Leite Condensado</h3>
+                        <p class="preco">R$ 8</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        A versão mais leve do clássico brasileiro, cremoso e delicado, para quem não abre mão do sabor com equilíbrio.
+                      </p>
+                      <p><strong>Porção:</strong> 150g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 5 -->
+              <article class="card-prato" data-categoria="vegetariano">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img src="/assets/images/cardapio/sobremesas/palhaItalianaChoc70_small.webp" alt="Palha Italiana com Chocolate 70%">
+                    </figure>
+                    <div class="card-info">
+                      <h3>Palha Italiana com Chocolate 70%</h3>
+                        <p class="preco">R$ 9</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                       Quadradinhos crocantes de biscoito integral e chocolate amargo, em uma versão nutritiva que satisfaz o desejo por um docinho especial.
+                      </p>
+                      <p><strong>Porção:</strong> 150g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 6 -->
+              <article class="card-prato" data-categoria="todos">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img src="/assets/images/cardapio/sobremesas/saladaFrutasAveia_small.webp" alt="Salada de Frutas com Aveia">
+                    </figure>
+                    <div class="card-info">
+                      <h3>Salada de Frutas com Aveia</h3>
+                        <p class="preco">R$ 8</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Frutas frescas combinadas com aveia, uma sobremesa ou lanche que nutre e alegra com suas cores e sabores naturais.
+                      </p>
+                      <p><strong>Porção:</strong> 150g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 6 -->
+              <article class="card-prato" data-categoria="todos">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                       <img src="/assets/images/cardapio/sobremesas/acaiNaturalBanana_small.webp" alt="Açaí Natural com Banana">
+                    </figure>
+                    <div class="card-info">
+                      <h3>Açaí Natural com Banana</h3>
+                        <p class="preco">R$ 12</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Açaí puro, sem xaropes, acompanhado de banana. Cremoso, nutritivo e verdadeiro, como deve ser.
+                      </p>
+                      <p><strong>Porção:</strong> 150g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 7 -->
+              <article class="card-prato" data-categoria="vegetariano sem-gluten">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img src="/assets/images/cardapio/sobremesas/iogurteNaturalFrutas_small.webp" alt="Iogurte Natural com Frutas">
+                    </figure>
+                    <div class="card-info">
+                      <h3>Iogurte Natural com Frutas</h3>
+                        <p class="preco">R$ 10</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Iogurte fresco combinado com frutas selecionadas, uma opção leve e deliciosa para qualquer momento do dia.
+                      </p>
+                      <p><strong>Porção:</strong> 150g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 8 -->
+              <article class="card-prato" data-categoria="todos">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img
+                        src="/assets/images/cardapio/sobremesas/palhaItalianaSemGluten_small.webp"
+                        alt="Palha Italiana Sem Glúten"
+                      />
+                    </figure>
+                    <div class="card-info">
+                      <h3>Palha Italiana Sem Glúten</h3>
+                      <p class="preco">R$ 9</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Doce cremoso de chocolate com leite vegetal, combinado com biscoito sem glúten, finalizado com cacau 70% em pó. Indulgente, leve e seguro para quem busca um doce sem glúten. 
+                      </p>
+                      <p><strong>Porção:</strong> 150g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 9 -->
+              <article class="card-prato" data-categoria="vegetariano">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img
+                        src="/assets/images/cardapio/sobremesas/tortaDeLimao_small.webp"
+                        alt="Torta de Limão Individual"
+                      />
+                    </figure>
+                    <div class="card-info">
+                      <h3>Torta de Limão Individual</h3>
+                      <p class="preco">R$ 10</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Base crocante preparada com biscoito triturado e manteiga; recheio cremoso à base de leite condensado, creme de leite e suco natural de limão. Um clássico doce, equilibrado entre o ácido e o cremoso.
+                      </p>
+                      <p><strong>Porção:</strong> 150g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 10 -->
+              <article class="card-prato" data-categoria="todos">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img
+                        src="/assets/images/cardapio/sobremesas/saladaFrutasHortela_small.webp"
+                        alt="Salada de Frutas com Hortelã"
+                      />
+                    </figure>
+                    <div class="card-info">
+                      <h3>Salada de Frutas com Hortelã</h3>
+                      <p class="preco">R$ 10</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Frutas frescas (banana, maçã, manga, laranja e uva sem semente) com leve toque de hortelã e limão. Refrescante, natural e ideal para finalizar a refeição com leveza.
+                      </p>
+                      <p><strong>Porção:</strong> 150g</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+          <!-- Seção de Bebidas -->
+          <section id="bebidas">
+            <h2>Bebidas</h2>
+            <div class="cardapio-grid">
+              <!-- Card de Prato 1 -->
+              <article class="card-prato" data-categoria="todos">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                       <img src="/assets/images/cardapio/bebidas/sucoNatural_small.webp" alt="Suco Natural da Fruta">
+                    </figure>
+                    <div class="card-info">
+                      <h3>Suco Natural da Fruta</h3>
+                        <p class="preco">R$ 7</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Feito na hora com frutas frescas, cada gole é uma explosão de vitalidade e sabor puro. Sabores: laranja, abacaxi, acerola, morango, limão, kiwi.
+                      </p>
+                      <p><strong>Porção:</strong> 300ml</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 2 -->
+              <article class="card-prato" data-categoria="todos">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img src="/assets/images/cardapio/bebidas/sucoDetox_small.webp" alt="Suco Detox / Suco Verde">
+                    </figure>
+                    <div class="card-info">
+                      <h3>Suco Detox / Suco Verde</h3>
+                        <p class="preco">R$ 8</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Uma combinação refrescante de vegetais e frutas selecionadas para limpar e revitalizar seu dia.
+                      </p>
+                      <p><strong>Porção:</strong> 300ml</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 3 -->
+              <article class="card-prato" data-categoria="todos">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img src="/assets/images/cardapio/bebidas/chaGelado_small.webp" alt="Chá Gelado Natural">
+                    </figure>
+                    <div class="card-info">
+                      <h3>Chá Gelado Natural</h3>
+                        <p class="preco">R$ 5</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Infusão suave e refrescante, perfeita para acalmar ou revigorar, sem adição de açúcares. Sabores: hibisco, camomila ou hortelã.
+                      </p>
+                      <p><strong>Porção:</strong> 300ml</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 4 -->
+              <article class="card-prato" data-categoria="todos">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                       <img src="/assets/images/cardapio/bebidas/aguaNatural_small.webp" alt="Água Natural">
+                    </figure>
+                    <div class="card-info">
+                      <h3>Água Natural</h3>
+                        <p class="preco">R$ 5</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        <p>Pura e cristalina, para hidratar com simplicidade.</p>
+                      </p>
+                      <p><strong>Porção:</strong> 300ml</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 5 -->
+              <article class="card-prato" data-categoria="vegetariano sem-gluten">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img src="/assets/images/cardapio/bebidas/shakeDeBananaWheyAveia_small.webp" alt="Shake de Banana, Whey Protein e Aveia">
+                    </figure>
+                    <div class="card-info">
+                      <h3>Shake de Banana, Whey Protein e Aveia</h3>
+                        <p class="preco">R$ 12</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Cremoso, nutritivo e energético, ideal para repor as energias com proteína de qualidade e o sabor aconchegante da banana.
+                      </p>
+                      <p><strong>Porção:</strong> 300ml</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 6 -->
+              <article class="card-prato" data-categoria="todos">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img src="/assets/images/cardapio/bebidas/preTreinoNatural_small.webp" alt="Pré-treino Natural">
+                    </figure>
+                    <div class="card-info">
+                      <h3>Pré-treino Natural</h3>
+                        <p class="preco">R$ 9</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Uma fusão vibrante que desperta os sentidos e prepara o corpo com energia natural e disposição, feito com beterraba, laranja e gengibre.
+                      </p>
+                      <p><strong>Porção:</strong> 300ml</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 7 -->
+              <article class="card-prato" data-categoria="vegetariano sem-gluten">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img src="/assets/images/cardapio/bebidas/smoothieVerdeEnergético_small.webp" alt="Smoothie Verde Energético">
+                    </figure>
+                    <div class="card-info">
+                      <h3>Smoothie Verde Energético</h3>
+                        <p class="preco">R$ 10</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Preparado com proteína de baunilha, banana congelada e leite, é a escolha perfeita para recarregar as energias com sabor e vitalidade.
+                      </p>
+                      <p><strong>Porção:</strong> 300ml</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 8 -->
+              <article class="card-prato" data-categoria="vegetariano sem-gluten">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img src="/assets/images/cardapio/bebidas/smoothieFrutasVermelhas_small.webp" alt="Smoothie de Frutas Vermelhas">
+                    </figure>
+                    <div class="card-info">
+                      <h3>Smoothie de Frutas Vermelhas</h3>
+                        <p class="preco">R$ 12,00</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Combinação cremosa de frutas vermelhas, proteína e leite, tão suave quanto revigorante.
+                      </p>
+                      <p><strong>Porção:</strong> 300ml</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Card de Prato 9 -->
+              <article class="card-prato" data-categoria="vegetariano sem-gluten">
+                <div class="card-inner">
+                  <!-- FRENTE -->
+                  <div class="card-front">
+                    <figure>
+                      <img src="/assets/images/cardapio/bebidas/smoothieChoc70Banana_small.webp" alt="Smoothie Chocolate 70% + Banana">
+                    </figure>
+                    <div class="card-info">
+                      <h3>Smoothie Chocolate 70% + Banana</h3>
+                        <p class="preco">R$ 12</p>
+                      <button
+                        class="btn-flip"
+                        data-action="open"
+                        aria-expanded="false"
+                      >
+                        Saiba mais
+                      </button>
+                    </div>
+                  </div>
+                  <!-- VERSO -->
+                  <div class="card-back">
+                    <div class="descricao-detalhada">
+                      <p>
+                        Para os momentos que pedem um toque de indulgência saudável: chocolate amargo e banana em uma bebida que nutre e conforta.
+                      </p>
+                      <p><strong>Porção:</strong> 300ml</p>
+                      <button
+                        class="btn-flip"
+                        data-action="close"
+                        aria-expanded="true"
+                      >
+                        Voltar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <!-- Seção de Parceiros -->
+          <section class="parceiros">
+            <h2>Refeições de Parceiros</h2>
+            <div class="carrossel">
+              <!-- Slide 1 -->
+              <div class="slide">
+                <img
+                  src="/assets/images/cardapio/quentinhas/quentinha1_small.webp"
+                  alt="Frango Grelhado com Arroz Integral e Legumes"
+                />
+                <div class="slide-texto">
+                  <h3>Frango Grelhado com Arroz Integral e Legumes</h3>
+                  <p>
+                    Peito de frango grelhado, arroz integral, feijão, abóbora
+                    refogada e brócolis. Uma refeição completa, preparada com
+                    atenção para sustentar seu dia.
+                  </p>
+                  <p class="slide-preco">R$ 14</p>
+                  <p class="slide-peso">350g</p>
+                </div>
+              </div>
+              <!-- Slide 2 -->
+              <div class="slide">
+                <img
+                  src="/assets/images/cardapio/quentinhas/quentinha2_small.webp"
+                  alt="Carne Moída com Lentilha e Couve"
+                />
+                <div class="slide-texto">
+                  <h3>Carne Moída com Lentilha e Couve</h3>
+                  <p>
+                    Carne moída magra, lentilha, cenoura com ervas e couve
+                    refogada. Nutritiva, saborosa e feita para te acompanhar com
+                    energia.
+                  </p>
+                  <p class="slide-preco">R$ 14</p>
+                  <p class="slide-peso">350g</p>
+                </div>
+              </div>
+              <div class="slide">
+                <img
+                  src="/assets/images/cardapio/quentinhas/quentinha3_small.webp"
+                  alt="Macarrão Integral com Atum e Salada"
+                />
+                <div class="slide-texto">
+                  <h3>Macarrão Integral com Atum e Salada</h3>
+                  <p>
+                    Macarrão integral com molho de tomate natural, atum e salada
+                    verde. Prático, saudável e cheio de sabor.
+                  </p>
+                  <p class="slide-preco">R$ 14</p>
+                  <p class="slide-peso">350g</p>
+                </div>
+              </div>
+              <div class="slide">
+                <img
+                  src="/assets/images/cardapio/quentinhas/quentinha4_small.webp"
+                  alt="Peixe Grelhado com Arroz Branco e Legumes"
+                />
+                <div class="slide-texto">
+                  <h3>Peixe Grelhado com Arroz Branco e Legumes</h3>
+                  <p>
+                    Peixe grelhado, arroz branco e legumes no vapor,
+                    acompanhados de salada fresca. Equilibrada e reconfortante.
+                  </p>
+                  <p class="slide-preco">R$ 14</p>
+                  <p class="slide-peso">350g</p>
+                </div>
+              </div>
+              <div class="slide">
+                <img
+                  src="/assets/images/cardapio/quentinhas/quentinha5_small.webp"
+                  alt="Omelete de Forno com Arroz Integral e Legumes Ralados"
+                />
+                <div class="slide-texto">
+                  <h3>Omelete de Forno com Arroz Integral e Legumes Ralados</h3>
+                  <p>
+                    Omelete assado com legumes, servido com arroz integral,
+                    cenoura e beterraba ralada. Uma opção leve e proteica, cheia
+                    de cor e carinho.
+                  </p>
+                  <p class="slide-preco">R$ 12</p>
+                  <p class="slide-peso">350g</p>
+                </div>
+              </div>
+              <!-- Botões de navegação do carrossel -->
+              <div class="carrossel-botoes">
+                <button class="prev-btn">⇐</button>
+                <button class="next-btn">⇒</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+      <section class="cardapio-info-geral">
+        <div class="container">
+          <div class="info-geral-grid">
+            <div class="info-item">
+              <h4>Avisos de Alergias</h4>
+              <p>
+                Nossa cozinha manipula oleaginosas e glúten. Informe seu atendente sobre restrições severas.
+              </p>
+              <p>Nossas refeições podem ser adaptadas mediante aviso prévio.</p>
+            </div>
+            <div class="info-item">
+              <h4>Entrega e Retirada</h4>
+              <p>
+                Tempo médio de preparo: 25-40 minutos. Aceitamos todos os
+                cartões e tickets.
+              </p>
+            </div>
+            <div class="info-item">
+              <h4>Origem</h4>
+              <p>
+                80% dos nossos vegetais vêm de agricultura familiar num raio de
+                100km.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-neutro">
+      <div class="container">
+        <div class="footer-conteudo">
+          <div class="footer-info">
+            <span class="brand">Raíz Viva</span>
+            <p>Gastronomia com propósito e respeito às origens.</p>
+          </div>
+
+          <nav class="footer-nav">
+            <a href="/index.html">Início</a>
+            <a href="/pages/contacts.html">Contato</a>
+          </nav>
+
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="Facebook">FB</a>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <p>&copy; 2026 Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="/scripts/menu.js"></script>
+  <script src="/scripts/navbar.js"></script>
+  <script src="/scripts/loading.js"></script>
+</html>
